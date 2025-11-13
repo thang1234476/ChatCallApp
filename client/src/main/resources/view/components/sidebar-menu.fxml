@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:id="sidebarContainer"
+      fx:controller="com.chatapp.client.controller.component.SidebarMenuController"
+      styleClass="sidebar-menu"
+      prefWidth="260" minWidth="260" maxWidth="260">
+
+    <!-- Sidebar Header -->
+    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="sidebar-header">
+        <Label text="ChatApp" styleClass="app-title"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- User Profile Card - QUAN TRỌNG: Click để mở profile -->
+    <Button styleClass="user-profile-card">
+        <graphic>
+            <HBox alignment="CENTER_LEFT" spacing="12" prefWidth="228">
+                <StackPane styleClass="avatar-container">
+                    <Label fx:id="userAvatarLabel" text="U" styleClass="user-avatar"/>
+                </StackPane>
+
+                <Label fx:id="userNameLabel" text="Username" styleClass="user-name" HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <Separator/>
+
+    <!-- Menu Items -->
+    <VBox styleClass="menu-items" VBox.vgrow="ALWAYS" spacing="0">
+        <padding>
+            <Insets top="8" bottom="8"/>
+        </padding>
+
+        <Button fx:id="chatsBtn" onAction="#showChats"
+                styleClass="menu-item, menu-item-active" maxWidth="Infinity">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <FontAwesomeIconView glyphName="COMMENTS" styleClass="menu-icon"/>
+                    <Label text="Chats" styleClass="menu-text"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+        <Button fx:id="contactsBtn" onAction="#showContacts"
+                styleClass="menu-item" maxWidth="Infinity">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <FontAwesomeIconView glyphName="ADDRESS_BOOK" styleClass="menu-icon"/>
+                    <Label text="Contacts" styleClass="menu-text"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+        <Button fx:id="callsBtn" onAction="#showCalls"
+                styleClass="menu-item" maxWidth="Infinity">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <FontAwesomeIconView glyphName="PHONE" styleClass="menu-icon"/>
+                    <Label text="Calls" styleClass="menu-text"/>
+                </HBox>
+            </graphic>
+        </Button>
+
+        <Button fx:id="savedBtn" onAction="#showSavedMessages"
+                styleClass="menu-item" maxWidth="Infinity">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <FontAwesomeIconView glyphName="BOOKMARK" styleClass="menu-icon"/>
+                    <Label text="Saved Messages" styleClass="menu-text"/>
+                </HBox>
+            </graphic>
+        </Button>
+    </VBox>
+
+    <!-- Bottom Section -->
+    <VBox styleClass="menu-bottom" spacing="0">
+        <Separator/>
+        <Button fx:id="settingsBtn" onAction="#openSettings"
+                styleClass="menu-item" maxWidth="Infinity">
+            <graphic>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <FontAwesomeIconView glyphName="COG" styleClass="menu-icon"/>
+                    <Label text="Settings" styleClass="menu-text"/>
+                </HBox>
+            </graphic>
+        </Button>
+    </VBox>
+
+</VBox>

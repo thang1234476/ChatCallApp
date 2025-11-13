@@ -1,0 +1,2 @@
+rootProject.name = 'ChatVideoApp'
+include 'common', 'server', 'client'

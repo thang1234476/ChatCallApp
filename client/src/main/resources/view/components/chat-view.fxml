@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.chatapp.client.controller.component.ChatViewController"
+      styleClass="chat-view-panel" HBox.hgrow="ALWAYS">
+
+    <!-- Chat Header -->
+    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="chat-header">
+        <padding>
+            <Insets top="12" right="15" bottom="12" left="15"/>
+        </padding>
+
+        <StackPane styleClass="contact-avatar-container">
+            <Label fx:id="contactAvatarLabel" text="D" styleClass="contact-avatar"/>
+        </StackPane>
+
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label fx:id="contactNameLabel" text="Select a chat" styleClass="contact-name"/>
+            <Label fx:id="contactStatusLabel" text="to start messaging" styleClass="contact-status"/>
+        </VBox>
+
+        <!-- Video call -->
+        <Button fx:id="videoCallBtn" styleClass="icon-button" onAction="#startVideoCall">
+            <graphic>
+                <FontAwesomeIconView glyphName="VIDEO_CAMERA" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+
+        <!-- Search -->
+        <Button fx:id="searchBtn" styleClass="icon-button" onAction="#searchInChat">
+            <graphic>
+                <FontAwesomeIconView glyphName="SEARCH" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+
+        <!-- Menu -->
+        <Button fx:id="menuBtn" styleClass="icon-button" onAction="#openChatMenu">
+            <graphic>
+                <FontAwesomeIconView glyphName="ELLIPSIS_V" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Messages Area -->
+    <ScrollPane fx:id="messagesScrollPane" fitToWidth="true"
+                styleClass="messages-scroll" VBox.vgrow="ALWAYS">
+        <VBox fx:id="messagesContainer" spacing="10" styleClass="messages-container">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <!-- Empty State -->
+            <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">
+                <Label text="💬" style="-fx-font-size: 64px;"/>
+                <Label text="Chọn một cuộc trò chuyện để bắt đầu"
+                       style="-fx-font-size: 16px; -fx-text-fill: #5f6368;"/>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+
+    <Separator/>
+
+    <!-- Message Input Area -->
+    <VBox spacing="0" styleClass="message-input-area">
+        <padding>
+            <Insets top="12" right="15" bottom="12" left="15"/>
+        </padding>
+
+        <HBox alignment="CENTER" spacing="10">
+            <!-- Attach -->
+            <Button fx:id="attachBtn" styleClass="icon-button" onAction="#attachFile">
+                <graphic>
+                    <FontAwesomeIconView glyphName="PAPERCLIP" size="16" styleClass="icon-path"/>
+                </graphic>
+            </Button>
+
+            <TextField fx:id="messageInputField" promptText="Nhập tin nhắn..."
+                       HBox.hgrow="ALWAYS" styleClass="message-input"
+                       onAction="#sendMessage"/>
+
+            <!-- Emoji -->
+            <Button fx:id="emojiBtn" styleClass="icon-button" onAction="#addEmoji">
+                <graphic>
+                    <FontAwesomeIconView glyphName="SMILE_O" size="16" styleClass="icon-path"/>
+                </graphic>
+            </Button>
+
+            <!-- Voice -->
+            <Button fx:id="voiceBtn" styleClass="icon-button" onAction="#recordVoice">
+                <graphic>
+                    <FontAwesomeIconView glyphName="MICROPHONE" size="16" styleClass="icon-path"/>
+                </graphic>
+            </Button>
+        </HBox>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,43 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.media', 'javafx.swing']
+}
+
+application {
+    mainClass = 'com.chatapp.client.ClientMain'
+}
+
+dependencies {
+    implementation project(':common')
+    implementation 'org.bytedeco:javacv-platform:1.5.10'
+    implementation 'de.jensd:fontawesomefx-fontawesome:4.7.0-9.1.2'
+    implementation 'io.netty:netty-all:4.1.100.Final'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'org.xerial:sqlite-jdbc:3.43.0.0'
+    implementation 'commons-io:commons-io:2.15.0'
+    implementation 'com.vdurmont:emoji-java:5.1.1'
+}
+
+jar {
+    archiveBaseName = 'chatapp-client'
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+}
+
+tasks.register('fatJar', Jar) {
+    archiveBaseName = 'chatapp-client-fat'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}

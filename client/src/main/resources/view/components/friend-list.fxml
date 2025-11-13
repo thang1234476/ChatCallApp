@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.chatapp.client.controller.component.FriendListController"
+      styleClass="chat-list-panel">
+
+    <!-- Search Bar -->
+    <HBox alignment="CENTER_LEFT" spacing="8" styleClass="search-bar">
+        <TextField fx:id="searchField" promptText="Search contacts"
+                   HBox.hgrow="ALWAYS" styleClass="search-input"
+                   onAction="#handleSearch"/>
+
+        <!-- Search button -->
+        <Button styleClass="icon-button" onAction="#handleSearch">
+            <graphic>
+                <FontAwesomeIconView glyphName="SEARCH" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+
+        <!-- Add friend button -->
+        <Button onAction="#startNewChat" styleClass="icon-button">
+            <graphic>
+                <FontAwesomeIconView glyphName="USER_PLUS" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <!-- Tabs -->
+    <HBox spacing="0" styleClass="chat-tabs">
+        <Button fx:id="allContactsTab" text="All Contacts" onAction="#showAllContacts"
+                styleClass="chat-tab-button, chat-tab-active"/>
+        <Button fx:id="requestsTab" text="Requests" onAction="#showRequests"
+                styleClass="chat-tab-button"/>
+        <Button fx:id="addFriendTab" text="Add Friend" onAction="#showAddFriend"
+                styleClass="chat-tab-button"/>
+    </HBox>
+
+    <!-- Contact Count -->
+    <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 8 16; -fx-background-color: #f8f9fa;">
+        <Label fx:id="friendCountLabel" text="0 contacts"
+               style="-fx-text-fill: #5f6368; -fx-font-size: 12px;"/>
+    </HBox>
+
+    <!-- Contact List -->
+    <ScrollPane fitToWidth="true" fitToHeight="true"
+                styleClass="chat-list-scroll" VBox.vgrow="ALWAYS">
+        <ListView fx:id="contactListView" styleClass="chat-list">
+            <placeholder>
+                <VBox alignment="CENTER" spacing="10" style="-fx-padding: 40;">
+                    <Label text="👥" style="-fx-font-size: 48px;"/>
+                    <Label text="No contacts yet" style="-fx-font-size: 14px; -fx-text-fill: #5f6368;"/>
+                    <Label text="Add friends to get started"
+                           style="-fx-font-size: 12px; -fx-text-fill: #80868b;"/>
+                </VBox>
+            </placeholder>
+        </ListView>
+    </ScrollPane>
+
+</VBox>

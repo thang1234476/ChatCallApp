@@ -1,0 +1,50 @@
+.modern-dialog {
+    -fx-font-family: "Inter", "Segoe UI", sans-serif;
+    -fx-background-color: #ffffff;
+}
+
+.dialog-pane {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e1e5ea;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.modern-input {
+    -fx-background-color: #f7f8fa;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+}
+.modern-input:focused {
+    -fx-border-color: #0078ff;
+    -fx-background-color: #ffffff;
+}
+
+.button {
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-padding: 6 16;
+}
+.button:default {
+    -fx-background-color: linear-gradient(to right, #0078ff, #45b4ff);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+}
+.button:default:hover {
+    -fx-background-color: linear-gradient(to right, #0a8bff, #5fc3ff);
+}
+.button:cancel {
+    -fx-background-color: #f5f6f8;
+    -fx-text-fill: #333;
+}
+.button:cancel:hover {
+    -fx-background-color: #ebedf0;
+}
+
+.error-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #e53935;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.chatapp.client.controller.component.ChatListController"
+      styleClass="chat-list-panel">
+
+    <!-- Search Bar -->
+    <HBox alignment="CENTER_LEFT" spacing="8" styleClass="search-bar">
+        <TextField fx:id="searchField" promptText="Search"
+                   HBox.hgrow="ALWAYS" styleClass="search-input"/>
+
+        <!-- Nút tìm kiếm -->
+        <Button styleClass="icon-button" onAction="#handleSearch">
+            <graphic>
+                <FontAwesomeIconView glyphName="SEARCH" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+
+        <!-- Nút tạo chat mới -->
+        <Button onAction="#startNewChat" styleClass="icon-button">
+            <graphic>
+                <FontAwesomeIconView glyphName="USER_PLUS" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <!-- Tabs -->
+    <HBox spacing="0" styleClass="chat-tabs">
+        <Button fx:id="allChatsTab" text="All Chats" onAction="#showAllChats"
+                styleClass="chat-tab-button, chat-tab-active"/>
+        <Button fx:id="groupsTab" text="Groups" onAction="#showGroups"
+                styleClass="chat-tab-button"/>
+    </HBox>
+
+    <!-- Chat List -->
+    <ScrollPane fitToWidth="true" fitToHeight="true"
+                styleClass="chat-list-scroll" VBox.vgrow="ALWAYS">
+        <ListView fx:id="chatListView" styleClass="chat-list"/>
+    </ScrollPane>
+
+</VBox>

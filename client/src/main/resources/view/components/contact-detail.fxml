@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.chatapp.client.controller.component.ContactDetailController"
+      styleClass="chat-view-panel" HBox.hgrow="ALWAYS">
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="chat-header">
+        <padding>
+            <Insets top="12" right="15" bottom="12" left="15"/>
+        </padding>
+
+        <StackPane styleClass="contact-avatar-container">
+            <Label fx:id="contactAvatarLabel" text="?" styleClass="contact-avatar"/>
+        </StackPane>
+
+        <VBox spacing="2" HBox.hgrow="ALWAYS">
+            <Label fx:id="contactNameLabel" text="Select a contact" styleClass="contact-name"/>
+            <Label fx:id="contactStatusLabel" text="to view details" styleClass="contact-status"/>
+        </VBox>
+
+        <!-- Actions -->
+        <Button fx:id="messageBtn" styleClass="icon-button" onAction="#sendMessage">
+            <graphic>
+                <FontAwesomeIconView glyphName="COMMENT" size="16" styleClass="icon-path"/>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Send Message"/>
+            </tooltip>
+        </Button>
+
+        <Button fx:id="videoCallBtn" styleClass="icon-button" onAction="#startVideoCall">
+            <graphic>
+                <FontAwesomeIconView glyphName="VIDEO_CAMERA" size="16" styleClass="icon-path"/>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Video Call"/>
+            </tooltip>
+        </Button>
+
+        <Button fx:id="menuBtn" styleClass="icon-button" onAction="#openMenu">
+            <graphic>
+                <FontAwesomeIconView glyphName="ELLIPSIS_V" size="16" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Contact Details -->
+    <ScrollPane fx:id="detailsScrollPane" fitToWidth="true"
+                styleClass="messages-scroll" VBox.vgrow="ALWAYS">
+        <VBox fx:id="detailsContainer" spacing="0" styleClass="contact-details-container">
+            <padding>
+                <Insets top="0" right="0" bottom="0" left="0"/>
+            </padding>
+
+            <!-- Empty State -->
+            <VBox fx:id="emptyState" alignment="CENTER" spacing="15"
+                  VBox.vgrow="ALWAYS" style="-fx-padding: 60 20;">
+                <StackPane>
+                    <Label text="👤" style="-fx-font-size: 80px;"/>
+                </StackPane>
+                <Label text="Select a contact"
+                       style="-fx-font-size: 18px; -fx-font-weight: 600; -fx-text-fill: #202124;"/>
+                <Label text="View contact details and start chatting"
+                       style="-fx-font-size: 14px; -fx-text-fill: #5f6368;"/>
+            </VBox>
+
+            <!-- Contact Info Section (Hidden initially) -->
+            <VBox fx:id="infoSection" spacing="0" visible="false" managed="false">
+                <!-- Profile Picture -->
+                <VBox alignment="CENTER" spacing="15" style="-fx-padding: 40 20 30 20; -fx-background-color: #f8f9fa;">
+                    <StackPane styleClass="large-avatar-container">
+                        <Label fx:id="largeAvatarLabel" text="?" styleClass="large-avatar"/>
+                    </StackPane>
+                    <Label fx:id="fullNameLabel" text="Full Name"
+                           style="-fx-font-size: 22px; -fx-font-weight: 600; -fx-text-fill: #202124;"/>
+                    <Label fx:id="statusTextLabel" text="online"
+                           style="-fx-font-size: 14px; -fx-text-fill: #5f6368;"/>
+                </VBox>
+
+                <Separator/>
+
+                <!-- Info Items -->
+                <VBox spacing="0" style="-fx-background-color: white;">
+                    <!-- Username -->
+                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="info-item">
+                        <padding>
+                            <Insets top="15" right="20" bottom="15" left="20"/>
+                        </padding>
+                        <FontAwesomeIconView glyphName="USER" size="18" styleClass="info-icon"/>
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label text="Username" styleClass="info-label"/>
+                            <Label fx:id="usernameLabel" text="@username" styleClass="info-value"/>
+                        </VBox>
+                    </HBox>
+
+                    <Separator style="-fx-padding: 0 20;"/>
+
+                    <!-- Bio -->
+                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="info-item">
+                        <padding>
+                            <Insets top="15" right="20" bottom="15" left="20"/>
+                        </padding>
+                        <FontAwesomeIconView glyphName="INFO_CIRCLE" size="18" styleClass="info-icon"/>
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label text="Bio" styleClass="info-label"/>
+                            <Label fx:id="bioLabel" text="No bio" styleClass="info-value" wrapText="true"/>
+                        </VBox>
+                    </HBox>
+
+                    <Separator style="-fx-padding: 0 20;"/>
+
+                    <!-- Email -->
+                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="info-item">
+                        <padding>
+                            <Insets top="15" right="20" bottom="15" left="20"/>
+                        </padding>
+                        <FontAwesomeIconView glyphName="ENVELOPE" size="18" styleClass="info-icon"/>
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label text="Email" styleClass="info-label"/>
+                            <Label fx:id="emailLabel" text="email@example.com" styleClass="info-value"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <Separator/>
+
+                <!-- Actions Section -->
+                <VBox spacing="0" style="-fx-background-color: white; -fx-padding: 10 0;">
+                    <!-- Notifications -->
+                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="action-item">
+                        <padding>
+                            <Insets top="12" right="20" bottom="12" left="20"/>
+                        </padding>
+                        <FontAwesomeIconView glyphName="BELL" size="18" styleClass="info-icon"/>
+                        <Label text="Notifications" HBox.hgrow="ALWAYS"
+                               style="-fx-font-size: 14px; -fx-text-fill: #202124;"/>
+                        <CheckBox fx:id="notificationsToggle" selected="true"/>
+                    </HBox>
+
+                    <Separator style="-fx-padding: 0 20;"/>
+
+                    <!-- Block -->
+                    <Button fx:id="blockBtn" onAction="#blockContact"
+                            styleClass="action-item-button" maxWidth="Infinity">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <padding>
+                                    <Insets top="12" right="20" bottom="12" left="5"/>
+                                </padding>
+                                <FontAwesomeIconView glyphName="BAN" size="18"
+                                                     style="-fx-fill: #ea4335;"/>
+                                <Label text="Block Contact"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #ea4335;"/>
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <Separator style="-fx-padding: 0 20;"/>
+
+                    <!-- Remove Friend -->
+                    <Button fx:id="removeBtn" onAction="#removeContact"
+                            styleClass="action-item-button" maxWidth="Infinity">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <padding>
+                                    <Insets top="12" right="20" bottom="12" left="5"/>
+                                </padding>
+                                <FontAwesomeIconView glyphName="USER_TIMES" size="18"
+                                                     style="-fx-fill: #ea4335;"/>
+                                <Label text="Remove Friend"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #ea4335;"/>
+                            </HBox>
+                        </graphic>
+                    </Button>
+                </VBox>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+
+</VBox>

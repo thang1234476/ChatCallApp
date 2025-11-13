@@ -1,0 +1,136 @@
+### Java template ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+### IntelliJ IDEA ###
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# AWS User-specific
+.idea/**/aws.xml
+
+# Generated files
+.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# Uncomment if using auto-import (recommended for Gradle)
+.idea/artifacts
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/*.iml
+.idea/modules/
+*.iml
+*.ipr
+
+# CMake
+cmake-build-*/
+
+# IntelliJ
+out/
+.idea_modules/
+.idea/replstate.xml
+.idea/sonarlint/
+.idea/httpRequests
+.idea/caches/build_file_checksums.ser
+
+# Android Studio plugin stuff
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+### Gradle ###
+.gradle
+**/build/
+!src/**/build/
+
+# Gradle GUI config
+gradle-app.setting
+
+# Gradle wrapper (keep!)
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# Cache
+.gradletasknamecache
+
+# Eclipse artifacts (if ever imported)
+.project
+.classpath
+
+# Logs and temp folders
+logs/
+tmp/
+*.tmp
+*.bak
+
+### Environment & Secrets ###
+.env
+*.env
+*.properties.local
+**/local.properties
+
+# Ignore IntelliJ module files in submodules
+client/**/*.iml
+server/**/*.iml
+common/**/*.iml
+
+# Optional: ignore IDE metadata backups
+*.swp
+*.swo
+*.idea_backup/
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.chatapp.client.controller.component.ProfileController"
+      styleClass="profile-panel" spacing="0">
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="profile-header">
+        <padding>
+            <Insets top="15" right="15" bottom="15" left="15"/>
+        </padding>
+
+        <Button styleClass="icon-button" onAction="#closeProfile">
+            <graphic>
+                <FontAwesomeIconView glyphName="ARROW_LEFT" size="18" styleClass="icon-path"/>
+            </graphic>
+        </Button>
+
+        <Label text="Profile" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Button fx:id="editBtn" text="Edit" styleClass="primary-button" onAction="#toggleEditMode"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Main Scroll Content -->
+    <ScrollPane fitToWidth="true" styleClass="profile-scroll" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" styleClass="profile-content">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Avatar -->
+            <VBox alignment="CENTER" spacing="15">
+                <StackPane styleClass="profile-avatar-container">
+                    <Label fx:id="avatarLabel" text="U" styleClass="profile-avatar"/>
+                </StackPane>
+
+                <Button fx:id="changeAvatarBtn" text="Change Avatar"
+                        styleClass="secondary-button" onAction="#changeAvatar"
+                        visible="false" managed="false"/>
+            </VBox>
+
+            <Separator/>
+
+            <!-- User Info -->
+            <VBox spacing="15">
+
+                <!-- Username -->
+                <VBox spacing="5">
+                    <Label text="Username" styleClass="profile-label"/>
+                    <TextField fx:id="usernameField" editable="false"
+                               styleClass="profile-input-readonly"/>
+                </VBox>
+
+                <!-- Full Name -->
+                <VBox spacing="5">
+                    <Label text="Full Name" styleClass="profile-label"/>
+                    <TextField fx:id="fullNameField" editable="false"
+                               styleClass="profile-input"/>
+                </VBox>
+
+                <!-- Email -->
+                <VBox spacing="5">
+                    <Label text="Email" styleClass="profile-label"/>
+                    <TextField fx:id="emailField" editable="false"
+                               styleClass="profile-input"/>
+                </VBox>
+
+                <!-- Status Message -->
+                <VBox spacing="5">
+                    <Label text="Status Message" styleClass="profile-label"/>
+                    <TextArea fx:id="statusMessageField" editable="false"
+                              wrapText="true" prefRowCount="3"
+                              styleClass="profile-textarea"/>
+                </VBox>
+
+                <!-- Status Type -->
+                <VBox spacing="5">
+                    <Label text="Status" styleClass="profile-label"/>
+                    <ComboBox fx:id="statusTypeCombo" disable="true"
+                              styleClass="profile-combo" maxWidth="Infinity"/>
+                </VBox>
+
+            </VBox>
+
+            <!-- Action Buttons -->
+            <HBox spacing="10" alignment="CENTER" fx:id="actionButtonsBox"
+                  visible="false" managed="false">
+                <padding><Insets top="10"/></padding>
+                <Button text="Save Changes" styleClass="primary-button"
+                        onAction="#saveProfile" prefWidth="150"/>
+                <Button text="Cancel" styleClass="secondary-button"
+                        onAction="#cancelEdit" prefWidth="150"/>
+            </HBox>
+
+            <!-- Bottom Actions -->
+            <Separator/>
+            <Button text="Change Password" styleClass="secondary-button"
+                    onAction="#openChangePassword" maxWidth="Infinity"/>
+
+            <Button text="Logout" styleClass="danger-button"
+                    onAction="#logout" maxWidth="Infinity"/>
+        </VBox>
+    </ScrollPane>
+
+</VBox>

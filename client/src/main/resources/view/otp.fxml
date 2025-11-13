@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox  xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+      alignment="CENTER" spacing="20" style="-fx-background-color: #f8f9fa;">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!-- Title -->
+    <Label text="Xác thực OTP" alignment="CENTER">
+        <font>
+            <Font name="System Bold" size="28"/>
+        </font>
+        <style>
+            -fx-text-fill: #2d87d7;
+        </style>
+    </Label>
+
+    <!-- OTP Input -->
+    <HBox alignment="CENTER" spacing="12">
+        <TextField fx:id="otp1" maxWidth="60" prefWidth="60" prefHeight="60"
+                   style="-fx-font-size: 24; -fx-alignment: center; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #ced4da;"/>
+        <TextField fx:id="otp2" maxWidth="60" prefWidth="60" prefHeight="60"
+                   style="-fx-font-size: 24; -fx-alignment: center; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #ced4da;"/>
+        <TextField fx:id="otp3" maxWidth="60" prefWidth="60" prefHeight="60"
+                   style="-fx-font-size: 24; -fx-alignment: center; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #ced4da;"/>
+        <TextField fx:id="otp4" maxWidth="60" prefWidth="60" prefHeight="60"
+                   style="-fx-font-size: 24; -fx-alignment: center; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #ced4da;"/>
+        <TextField fx:id="otp5" maxWidth="60" prefWidth="60" prefHeight="60"
+                   style="-fx-font-size: 24; -fx-alignment: center; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #ced4da;"/>
+        <TextField fx:id="otp6" maxWidth="60" prefWidth="60" prefHeight="60"
+                   style="-fx-font-size: 24; -fx-alignment: center; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #ced4da;"/>
+    </HBox>
+
+    <!-- Status -->
+    <Label fx:id="statusLabel" text="Nhập mã OTP đã gửi đến email của bạn" alignment="CENTER" wrapText="true">
+        <style>
+            -fx-text-fill: #6c757d;
+            -fx-font-size: 14;
+        </style>
+    </Label>
+
+    <!-- Timer -->
+    <Label fx:id="timerLabel" text="05:00" alignment="CENTER">
+        <font>
+            <Font name="System Bold" size="18"/>
+        </font>
+        <style>
+            -fx-text-fill: #dc3545;
+        </style>
+    </Label>
+
+    <!-- Resend Button -->
+    <Button fx:id="resendButton" text="Gửi lại OTP" onAction="#resendOtp" disable="true"
+            style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 8;"/>
+
+</VBox>

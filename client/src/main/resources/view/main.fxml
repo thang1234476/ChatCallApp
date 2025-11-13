@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.chatapp.client.controller.MainController"
+            styleClass="main-container"
+            prefHeight="800" prefWidth="1200">
+
+    <!-- Top: Toggle Button -->
+    <top>
+        <HBox styleClass="top-bar">
+            <Button fx:id="globalToggleBtn" styleClass="menu-toggle-btn" onAction="#toggleSidebar">
+                <padding>
+                    <Insets top="12" right="12" bottom="12" left="12"/>
+                </padding>
+                <graphic>
+                    <HBox alignment="CENTER" prefWidth="20" prefHeight="20">
+                        <SVGPath fx:id="hamburgerIcon"
+                                 content="M 3 6 H 21 M 3 12 H 21 M 3 18 H 21"
+                                 styleClass="hamburger-icon"/>
+                    </HBox>
+                </graphic>
+            </Button>
+        </HBox>
+    </top>
+
+    <!-- Center: Main Content -->
+    <center>
+        <HBox spacing="0" HBox.hgrow="ALWAYS">
+
+            <!-- Sidebar Menu Container -->
+            <VBox fx:id="sidebarContainer"
+                  styleClass="sidebar-menu"
+                  prefWidth="260" minWidth="260" maxWidth="260"
+                  visible="false" managed="false">
+                <!-- Sidebar will be loaded dynamically in MainController -->
+            </VBox>
+
+            <!-- Chat/Contact List Container -->
+            <HBox fx:id="chatListContainer"
+                  styleClass="chat-list-panel"
+                  prefWidth="340" minWidth="340" maxWidth="340">
+                <!-- Chat list or Friend list will be loaded dynamically -->
+            </HBox>
+
+            <!-- Chat/Contact View Container -->
+            <HBox fx:id="chatViewContainer"
+                  styleClass="chat-view-panel"
+                  HBox.hgrow="ALWAYS">
+                <!-- Chat view or Contact detail will be loaded dynamically -->
+            </HBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>

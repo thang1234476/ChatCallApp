@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.chatapp.client.controller.RegisterController"
+            prefHeight="650" prefWidth="1000"
+            styleClass="root-container">
+
+    <left>
+        <VBox alignment="CENTER" spacing="20" styleClass="form-container">
+            <padding>
+                <Insets top="60" right="50" bottom="60" left="50"/>
+            </padding>
+
+            <VBox alignment="CENTER" spacing="5">
+                <Label text="REGISTER" styleClass="page-title"/>
+                <Label text="Create a new account to get started" alignment="CENTER" styleClass="page-subtitle" wrapText="true"/>
+            </VBox>
+
+            <VBox spacing="14" maxWidth="360">
+                <VBox spacing="8">
+                    <Label text="Username" styleClass="field-label"/>
+                    <HBox styleClass="input-field">
+                        <Label text="👤" styleClass="field-icon"/>
+                        <TextField fx:id="usernameField" promptText="username" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label text="Email" styleClass="field-label"/>
+                    <HBox styleClass="input-field">
+                        <Label text="✉️" styleClass="field-icon"/>
+                        <TextField fx:id="emailField" promptText="you@example.com" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label text="Password" styleClass="field-label"/>
+                    <HBox styleClass="input-field">
+                        <Label text="🔒" styleClass="field-icon"/>
+                        <PasswordField fx:id="passwordField" promptText="••••••••" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label text="Confirm Password" styleClass="field-label"/>
+                    <HBox styleClass="input-field">
+                        <Label text="🔒" styleClass="field-icon"/>
+                        <PasswordField fx:id="confirmPasswordField" promptText="••••••••" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="15" alignment="CENTER">
+                <Button fx:id="registerButton" text="REGISTER" onAction="#handleRegister"
+                        styleClass="primary-button" maxWidth="360"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox alignment="CENTER" spacing="35" styleClass="info-panel">
+            <padding>
+                <Insets top="60" right="50" bottom="60" left="50"/>
+            </padding>
+
+            <HBox spacing="0" alignment="CENTER" styleClass="tab-container">
+                <Button text="LOGIN" onAction="#handleLogin" styleClass="tab-button"/>
+                <Button text="REGISTER" styleClass="tab-button, tab-active"/>
+            </HBox>
+
+            <VBox alignment="CENTER" spacing="15" styleClass="illustration-area">
+                <Label text="📝" styleClass="illustration-icon"/>
+                <Label text="Join Our Community" styleClass="illustration-title"/>
+                <VBox alignment="CENTER" spacing="5">
+                    <Label text="Connect, share and chat easily" styleClass="illustration-text"/>
+                    <Label text="with friends everywhere." styleClass="illustration-text"/>
+                </VBox>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>
